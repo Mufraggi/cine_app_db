@@ -1,0 +1,7 @@
+
+# Chemin vers la base de données PostgreSQL (utilisez le nom du conteneur créé ci-dessus)
+database: postgres://user:password@localhost:5432/mydatabase?sslmode=disable
+
+
+# Répertoire contenant vos fichiers de migration SQL
+migrations_dir: db/migrations
