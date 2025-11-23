@@ -1,4 +1,4 @@
-\restrict 0KW0tcN52jGHb8xtNZsuYxO0xvpXwlRB6jSXagZwyC8o3kBV9tt3XWy78BNrH4k
+\restrict X5VZyHY6UnCpBN0VbHg8Ie8evh8VJYx02JZinr1NFVisDMmsvWNoFp5ek1fB38Q
 
 -- Dumped from database version 18.1 (Debian 18.1-1.pgdg13+2)
 -- Dumped by pg_dump version 18.1
@@ -88,10 +88,10 @@ CREATE TABLE public.raw_movie_api (
 
 CREATE TABLE public.raw_movie_embedding (
     id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
-    movie_external_id character varying(256),
-    input_text text NOT NULL,
+    raw_movie_api_id uuid NOT NULL,
     embedding public.vector(1536) NOT NULL,
-    embedded_at timestamp with time zone DEFAULT now()
+    created_at timestamp with time zone DEFAULT now(),
+    updated_at timestamp with time zone DEFAULT now()
 );
 
 
@@ -147,7 +147,7 @@ CREATE INDEX movie_embedding_idx ON public.movie USING hnsw (embedding public.ve
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 0KW0tcN52jGHb8xtNZsuYxO0xvpXwlRB6jSXagZwyC8o3kBV9tt3XWy78BNrH4k
+\unrestrict X5VZyHY6UnCpBN0VbHg8Ie8evh8VJYx02JZinr1NFVisDMmsvWNoFp5ek1fB38Q
 
 
 --

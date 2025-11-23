@@ -1,18 +1,18 @@
 -- migrate:up
 CREATE TABLE movie (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    imdb_id VARCHAR(256) NOT NULL,        -- IMDB ID
+    imdb_id VARCHAR(256) NOT NULL,
     type TEXT NOT NULL,
     primary_title TEXT NOT NULL,
     original_title TEXT,
-    primary_image JSONB,        -- peut contenir height, width, url
+    primary_image JSONB,
     start_year INT,
     runtime_seconds INT,
     genres TEXT[] NOT NULL,
-    rating JSONB,               -- { score, count }
+    rating JSONB,
     plot TEXT NOT NULL,
 
-    embedding VECTOR(1536),     -- vector PGVECTOR
+    embedding VECTOR(1536),
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
